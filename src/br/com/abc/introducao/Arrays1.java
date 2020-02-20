@@ -23,7 +23,7 @@ public class Arrays1 {
 		System.out.println("idade 2: " + idades[1]);
 		System.out.println("idade 3: " + idades[2]);
 		
-
+//testando o git
 	}
 
 }
