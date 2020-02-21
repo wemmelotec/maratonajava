@@ -1,5 +1,5 @@
 //o nome do pacote por convenção deve ser feito pegando o domínio da empresa e escrevendo da de trás para frente
-package br.com.abc.introducao;
+package br.com.abc.introducao.arrays;
 
 public class Arrays1 {
 	public static void main(String[] args) {
