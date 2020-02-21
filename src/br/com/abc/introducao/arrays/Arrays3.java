@@ -1,4 +1,4 @@
-package br.com.abc.introducao;
+package br.com.abc.introducao.arrays;
 
 public class Arrays3 {
 
@@ -15,4 +15,5 @@ public class Arrays3 {
 			System.out.println(aux);
 		}
 	}
+	//teste
 }
