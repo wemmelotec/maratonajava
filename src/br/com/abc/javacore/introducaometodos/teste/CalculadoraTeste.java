@@ -20,7 +20,15 @@ public class CalculadoraTeste {
 		//só um exemplo de casting no argumento
 		calc.multiplicaDoisNumeros(2,(byte) 5);
 		System.out.println("Terminando a execução do método multiplica");
-
+		
+		System.out.println("Antes de chamar o método divide");
+		double result = calc.divideDoisNumeros(45, 0);
+		System.out.println(result);
+		System.out.println("Terminando a execução do método divide");
+		
+		System.out.println("Antes de chamar o método divide");
+		calc.imprimiDoisNumerosDivididos(45, 9);
+		System.out.println("Terminando a execução do método divide");
 	}
 
 }
