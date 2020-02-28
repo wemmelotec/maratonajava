@@ -29,6 +29,17 @@ public class CalculadoraTeste {
 		System.out.println("Antes de chamar o método divide");
 		calc.imprimiDoisNumerosDivididos(45, 9);
 		System.out.println("Terminando a execução do método divide");
+		System.out.println("****************************");
+		int [] numeros = new int[]{1,2,3,4,5};
+		//int [] numeros = {1,2,3,4,5};
+		System.out.println("Soma do Array");
+		calc.somaArray(numeros);
+		System.out.println("****************************");
+		System.out.println("Resultado da chamada do método com o VarArgs");
+		//aqui em vez de passar um Array eu posso passar apenas valores separados por virgula
+		//assim, quando o java receber esses valores, ele vai se encarregar de transforma ele em um array
+		//e executar o método
+		calc.somaVarArgs(1,15,3);
 	}
 
 }

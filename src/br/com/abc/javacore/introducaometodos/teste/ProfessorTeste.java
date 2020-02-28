@@ -24,20 +24,13 @@ public class ProfessorTeste {
 		 */
 		prof.imprime(prof);
 		prof.imprime(prof2);
-		
 		/*
-		System.out.println(prof.cpf);
-		System.out.println(prof.matricula);
-		System.out.println(prof.nome);
-		System.out.println(prof.rg);
+		 * essa segunda linha poderia ficar assim prof2.imprime(prof2)
+		 * não importa, pois quem vai executar o metódo imprime da variável de referência prof ou prof2
+		 * é o objeto prof2
+		 */
 		
-		System.out.println(prof2.cpf);
-		System.out.println(prof2.matricula);
-		System.out.println(prof2.nome);
-		System.out.println(prof2.rg);
-		*/
-		
-
+	
 	}
 
 }

@@ -13,4 +13,11 @@ public class Professor {
 		System.out.println(aux.nome);
 		System.out.println(aux.rg);
 	}
+	
+	public void imprimeDois() {
+		System.out.println(this.cpf);
+		System.out.println(this.matricula);
+		System.out.println(this.nome);
+		System.out.println(this.rg);
+	}
 }

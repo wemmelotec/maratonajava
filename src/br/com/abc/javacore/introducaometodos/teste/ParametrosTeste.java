@@ -10,6 +10,7 @@ public class ParametrosTeste {
 		
 		int num1 = 5;
 		int num2 = 10;
+		
 		calc.alteraDoisNumeros(num1, num2);
 		System.out.println("Dentro do teste");
 		System.out.println("num1: " + num1);
@@ -19,7 +20,19 @@ public class ParametrosTeste {
 		 * Quando eu passo argumentos do tipo primitivo, eu estou passando uma cópia
 		 * dos valores que estão nas variáveis, logo os valores nas vairaveis nunca serão
 		 * alterados, como no exemplo acima
+		 * 
+		 * Já no exemplo abaixo eu passo como argumento um array que não é do tipo primitivo
+		 * sendo assim, estou passando uma referência
+		 * e dessa forma eu posso alterar o valor
 		 */
+		
+		int [] i = {2};
+		System.out.println("Antes do método");
+		System.out.println("Referência i: "+i+"      Valor em i: "+i[0]);
+		System.out.println("Dentro do teste");
+		calc.alteraValorNoVetor(i);
+		System.out.println("Depois do método");
+		System.out.println("Referência i: "+i+"      Valor em i: "+i[0]);
 		
 		
 	}

@@ -57,6 +57,37 @@ public class Calculadora {
 		System.out.println("num1: " + num1);
 		System.out.println("num2: " + num2);
 	}
+	
+	public void alteraValorNoVetor(int [] aux) {
+		aux[0] = 35;
+		System.out.println("Referência aux: "+aux+"      Valor em aux: "+aux[0]);
+		int [] j = {40};
+		System.out.println("Referência j: "+j);
+		aux = j;
+		System.out.println("Referência aux: "+aux);
+	}
+	
+	public void somaArray(int[] numeros) {
+		int soma = 0;
+		//esse é o foreach que vai percorrer o array
+		for(int num : numeros) {
+			soma += num;
+		}
+		System.out.println(soma);
+	}
+	
+	//Método que vai receber o varargs.
+	//Esse método pode receber valores ou array, no caso de valores o java se encarrega de 
+	//montar um array com esses valores
+	//o que muda realmente é na chamada do método
+	public void somaVarArgs(int... numeros) {
+		int soma = 0;
+		//esse é o foreach que vai percorrer o array
+		for(int num : numeros) {
+			soma += num;
+		}
+		System.out.println(soma);
+	}
 }
 	
 	

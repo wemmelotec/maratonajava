@@ -20,7 +20,10 @@ public class ProfessorTest {
 		professor2.cpf="xxxx";
 		professor2.idade=40;
 		
-		System.out.println(professor1.nome);
+		professor1.imprimirArgumentos(professor1);
+		professor2.imprimirArgumentos(professor2);
+		
+		/*System.out.println(professor1.nome);
 		System.out.println(professor1.matricula);
 		System.out.println(professor1.rg);
 		System.out.println(professor1.cpf);
@@ -32,6 +35,7 @@ public class ProfessorTest {
 		System.out.println(professor2.cpf);
 		System.out.println(professor2.idade);
 		System.out.println("---------------------------------");
+		*/
 		System.out.println(professor1);
 		System.out.println(professor2);
 	}
