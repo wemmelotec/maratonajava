@@ -1,14 +1,25 @@
 package br.com.abc.javacore.sobrecargametodos.classes;
-
+/*----------------------------*\
+ *About sobrecarga de método  *					
+/*----------------------------*/
 public class Funcionario {
 
 	private String nome;
 	private String cpf;
 	private double salario;
-	
+	/*
+	 * Esse atríbuto rg foi acrescentado posteriormente para simular um ambiente de overload
+	 */
 	private String rg;
 	
+	//deixando um construtor explicito (lembrando que o Java ja faz na compilação)
+	//1 regra nuca um construtor tem retorno
 	
+	public Funcionario(String nome) {
+		//meu funcionario obrigatóriamente tem que ter um nome
+		this.nome = nome;
+	}
+		
 	public void imprime() {
 		System.out.println(this.nome);
 		System.out.println(this.cpf);

@@ -5,7 +5,7 @@ import br.com.abc.javacore.sobrecargametodos.classes.Funcionario;
 public class FuncionarioTest {
 
 	public static void main(String[] args) {
-		Funcionario funcionario = new Funcionario();
+		Funcionario funcionario = new Funcionario("Yuri");
 		/*
 		funcionario.setNome("Chica da Silva");
 		funcionario.setCpf("012.801.224-20");
