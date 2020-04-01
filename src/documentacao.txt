@@ -1,0 +1,14 @@
+Associação:
+É do tipo TEM UM(A)
+É importante observar a cardinalidade com a seguinte pergunta.
+Contexto de duas classes para exemplificar: Departamento e Pessoa
+Um Departamento pode ter uma ou várias Pessoas associados a ele?
+Ou uma Pessoa pode estar associado a um ou a vários departamentos?
+    1 - obrigatoriamente um
+    0..1 - zero ou um
+    1..* - um ou mais
+    0..* - zero ou mais
+    * - zero ou mais
+
+Herança:
+É do tipo É UM(A)
