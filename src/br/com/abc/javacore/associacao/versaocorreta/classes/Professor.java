@@ -14,13 +14,18 @@ public class Professor {
     public Professor() {
     }
 
-    public void print(){
+    public void print() {
         System.out.println("----------Relatorio do Professor-----------");
-        System.out.println("Nome: "+ this.nome);
-        System.out.println("Especialidade: "+this.especialidade);
-        System.out.print("Seminarios participantes");
-        for(Seminario sem: seminarios)
-            System.out.println(sem.getTitulo() + " ");
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Especialidade: " + this.especialidade);
+        if (seminaios = !null && seminarios.length = !0) {
+            System.out.print("Seminarios participantes");
+            for (Seminario sem : seminarios) {
+                System.out.println(sem.getTitulo() + " ");
+            }
+            return;
+        }
+        System.out.println("Profesor nao vinculado a nenhuma seminario");
     }
 
     public Seminario[] getSeminarios() {

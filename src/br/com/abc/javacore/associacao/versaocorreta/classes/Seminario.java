@@ -18,11 +18,19 @@ public class Seminario {
         System.out.println("----------Relatorio do seminario-----------");
         System.out.println("Titulo: " + this.titulo);
         System.out.println("Professor: " + this.professor.getNome());
-        System.out.println("Bairro: " + this.local.getBairro() + " Rua: " + this.local.getRua());
-        System.out.println("Alunos participantes");
-        for (Aluno aluno : alunos)
-            System.out.println(aluno.getNome());
+        if (this.local != null) {
+            System.out.println("Bairro: " + this.local.getBairro() + " Rua: " + this.local.getRua());
+        } else System.out.println("Nenhum local cadastrado para esse seminario");
+        if (alunos != null && alunos.length != 0) {
+            System.out.println("Alunos participantes");
+            for (Aluno aluno : alunos) {
+                System.out.println(aluno.getNome());
+            }
+            return;
+        }
+        System.out.println("Nenhum aluno cadastrado");
     }
+
 
     public Local getLocal() {
         return local;
