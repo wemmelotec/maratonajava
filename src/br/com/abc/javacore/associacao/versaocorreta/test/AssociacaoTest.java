@@ -21,7 +21,7 @@ public class AssociacaoTest {
 
         sem.setProfessor(prof);
         sem.setLocal(local);
-        //sem.setAlunos(new Aluno[]{aluno,aluno2});
+        sem.setAlunos(new Aluno[]{aluno,aluno2});
 
         /*Seminario[] semArray = new Seminario[1];
         semArray[0]=sem;
