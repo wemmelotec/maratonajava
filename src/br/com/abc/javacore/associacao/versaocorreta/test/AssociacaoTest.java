@@ -5,7 +5,7 @@ import br.com.abc.javacore.associacao.versaocorreta.classes.Local;
 import br.com.abc.javacore.associacao.versaocorreta.classes.Professor;
 import br.com.abc.javacore.associacao.versaocorreta.classes.Seminario;
 
-public class :A:ssociacaoTest {
+public class AssociacaoTest {
     public static void main(String[] args) {
 
         // primeiro você cria o aluno o seminários e depois você associa eles, criar os objetos
