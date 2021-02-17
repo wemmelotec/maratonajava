@@ -16,12 +16,16 @@ public class CarroTest {
 		carro.modelo="Ka";
 		carro.placa="QFW-4565";
 		carro.velocidadeMaxima=200;
+
+		System.out.println(carro.hashCode());
+		System.out.println(carro.getClass());
+		System.out.println(carro.toString());
 		
-		System.out.println(carro);
-		
-		System.out.println(carro.modelo);
-		System.out.println(carro.placa);
-		System.out.println(carro.velocidadeMaxima);
+//		System.out.println(carro);
+//
+//		System.out.println(carro.modelo);
+//		System.out.println(carro.placa);
+//		System.out.println(carro.velocidadeMaxima);
 		
 		
 	}
