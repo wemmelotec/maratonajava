@@ -23,9 +23,17 @@ public class ListTest {
         List<String> nomes2 = new ArrayList<>();
         nomes2.addAll(nomes);
         System.out.println("size nomes2 " + nomes2.size());
+        System.out.println("**************");
+        List<Integer> numeros = new ArrayList<>();
+        numeros.add(2);
+        numeros.add(3);
+        numeros.add(5);
+        System.out.println(numeros.size());
+        numeros.clear();
+        System.out.println(numeros.size());
 
         /*
-        esse são os métodos mais comuns do ArrayList add, remove, size e addAll
+        esse são os métodos mais comuns do ArrayList add, remove, size, addAll e clear
          */
 
     }
