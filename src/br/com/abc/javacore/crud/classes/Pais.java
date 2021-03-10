@@ -1,6 +1,7 @@
 package br.com.abc.javacore.crud.classes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,6 +34,10 @@ public class Pais {
             System.out.println("Digite o novo nome do estado: ");
             e.setName(input.next());
         }
+    }
+    public List<Estado> ordenaListaDosEstados(){
+        Collections.sort(estados);
+        return estados;
     }
 
     public List<Estado> getEstados() {
