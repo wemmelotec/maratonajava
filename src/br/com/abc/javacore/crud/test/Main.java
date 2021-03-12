@@ -39,8 +39,17 @@ public class Main {
 //            System.out.println(e.getName());
 //        }
 //        System.out.println("*****Ordenar*****");
+        //ordenação
         System.out.println("******");
         brasil.ordenaListaDosEstados();
+        for (Estado e: brasil.getEstados()) {
+            System.out.println(e.getName());
+        }
+        System.out.println("***Busca binária***");
+        System.out.println(brasil.buscaBinaria(e3));
+        Estado e6 = new Estado("Ceara");
+        System.out.println(brasil.buscaBinaria(e6));//-(-2) -1 = 2-1 = 1 esse é o indice da posição que deve ser asicionado o objeto e6 para manter a ordem
+        brasil.adicionarEstadoComIndex(1, e6);
         for (Estado e: brasil.getEstados()) {
             System.out.println(e.getName());
         }

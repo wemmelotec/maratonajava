@@ -18,6 +18,9 @@ public class Pais {
             System.out.println("O estado "+ e + " foi adicionado.");
         }
     }
+    public void adicionarEstadoComIndex(int i,Estado e){
+        estados.add(i,e);
+    }
     public boolean consultaEstado(Estado e){
         if(estados.contains(e)){
             System.out.println("Este estado existe");
@@ -38,6 +41,10 @@ public class Pais {
     public List<Estado> ordenaListaDosEstados(){
         Collections.sort(estados);
         return estados;
+    }
+    //BinarySearch
+    public int buscaBinaria(Estado estado){
+        return Collections.binarySearch(estados,estado);
     }
 
     public List<Estado> getEstados() {
