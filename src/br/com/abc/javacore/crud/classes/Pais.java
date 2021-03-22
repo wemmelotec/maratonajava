@@ -1,14 +1,9 @@
 package br.com.abc.javacore.crud.classes;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Pais {
     private List<Estado> estados = new ArrayList<>();
-
-
 
     public void adicionaEstado(Estado e){
         if(estados.contains(e)){
@@ -46,6 +41,10 @@ public class Pais {
     public int buscaBinaria(Estado estado){
         return Collections.binarySearch(estados,estado);
     }
+
+
+
+
 
     public List<Estado> getEstados() {
         return estados;
