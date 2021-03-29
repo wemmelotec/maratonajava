@@ -2,7 +2,7 @@ package br.com.abc.javacore.crud.crud2.classes;
 
 import java.util.Objects;
 
-public class Estado {
+public class Estado implements Comparable<Estado> {
     private String nome;
     private String capital;
 
@@ -46,5 +46,10 @@ public class Estado {
     @Override
     public int hashCode() {
         return Objects.hash(nome);
+    }
+
+    @Override
+    public int compareTo(Estado outroEstado) {
+        return this.nome.compareTo(outroEstado.getNome());
     }
 }
