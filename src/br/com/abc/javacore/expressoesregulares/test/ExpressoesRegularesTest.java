@@ -9,7 +9,7 @@ public class ExpressoesRegularesTest {
         String texto = "abaaaba"; //meu texto
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
-        System.out.println("Texto: "+texto);
+        System.out.println("Texto:  "+texto);
         System.out.println("Indice: 0123456789");
         System.out.println("Expressão: "+matcher.pattern());
         System.out.println("Posições encontradas");

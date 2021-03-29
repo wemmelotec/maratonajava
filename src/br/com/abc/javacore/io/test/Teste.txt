@@ -1,0 +1,2 @@
+Escrevendo no arquivo
+Escrevendo na outra linha após o newline

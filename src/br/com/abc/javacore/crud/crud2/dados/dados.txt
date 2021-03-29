@@ -1,0 +1,4 @@
+Estado {nome ='Paraiba', capital ='João Pessoa'}
+Estado {nome ='Pernambuco', capital ='Recife'}
+Estado {nome ='Rio grande do norte', capital ='Natal'}
+Estado {nome ='Ceara', capital ='Fortaleza'}

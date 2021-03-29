@@ -3,6 +3,7 @@ package br.com.abc.javacore.crud.classes;
 import java.util.Objects;
 
 public class Estado implements Comparable<Estado>{
+
     private String name;
 
     public Estado(String name) {
