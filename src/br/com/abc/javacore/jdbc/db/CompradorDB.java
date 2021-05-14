@@ -41,7 +41,7 @@ public class CompradorDB {
             e.printStackTrace();
         }
     }
-
+    //para updates mais complexos utilizar o resultset
     public static void update(Comprador comprador) {
         if (comprador == null || comprador.getId() == null) {
             System.out.println("Não foi possível atualizar o registro!");
@@ -176,5 +176,56 @@ public class CompradorDB {
             e.printStackTrace();
         }
 
+    }
+
+    //como vou fazer updates mais complexos vou utilizar o resultset
+    //em vez de fazer direto no banco vou trabalhar com o resultado da consulta na aplicação e depois atualizo no banco
+    //suponha que seu banco tenha varios usuários com nomes misturados UPPERCASE e LOWERCASE e vocêprecise passar
+    //tudo para lowercase
+    /*
+    esse método é muito útil para realizar calculos complicados na aplicação e depois enviar para o banco
+     */
+    public static void updateNomesToLowerCase(){
+        String sql = "SELECT id,cpf,nome FROM agencia.comprador";
+        Connection connection = ConexaoFactory.getConexao();
+        try {
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet resultSet = statement.executeQuery(sql);
+//            //imprimir o resultset
+//            while (resultSet.next()){
+//                System.out.println(resultSet.getInt("id"));
+//            }
+
+//            //para atualizar
+//            while (resultSet.next()) {
+//                //esse update atualiza no resultset e não no banco de dados
+//             resultSet.updateString("nome", resultSet.getString("nome").toLowerCase());
+//             //caso eu faça alguma modificação e queira retornar
+//                //resultSet.cancelRowUpdates();
+//             //agora para atualizar no banco roda o método abaixo
+//                resultSet.updateRow();
+//            }
+
+//            //agora para inserir
+//            resultSet.absolute(2); //coloquei o cursor na segunda linha do resultset
+//            String nome = resultSet.getString("nome"); //peguei o nome desse objeto
+//            resultSet.moveToInsertRow();//movi o objeto para uma linha temporaria e de onde ele saiu fica null como pode ser visto pelos sout
+////            System.out.println(nome);
+////            System.out.println(resultSet.getString("nome"));
+//            //note que o cursor do resultset continua na linha 2
+//            resultSet.updateString("nome", nome.toUpperCase());
+//            resultSet.updateString("cpf", "999.999.99-99");
+//            resultSet.insertRow();//para inserir essa nova linha
+//            System.out.println(resultSet.getRow());
+//            System.out.println(resultSet.getString("nome"));
+
+            //agora para deletar
+            resultSet.absolute(5); //ir com o cursor para a linha 10
+            resultSet.deleteRow();
+
+            ConexaoFactory.close(connection, statement, resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -12,6 +12,8 @@ Statement - realizar operações que vão afetar o estado do banco,
     executeQuery - faz uma consulta ao banco (ResultQuery)
 ResultSet - trabalha com os resultados daquela consulta
     pegar meta dados, por exemplo nome das colunas, quantidade de colunas
+    com o resultset você pode mover o cursor para a linha que desejar
+    pode fazer também update mais complexos
 Classe DriveManager = a conexão vem através desta classe que vai buscar o conector daquele banco de dados
 O DriverManeger é uma fábrica de objetos que vai te devolver uma conexão baseado na url que você especificar
  */

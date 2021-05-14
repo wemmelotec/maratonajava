@@ -12,7 +12,8 @@ public class TesteConexao {
         //inserir();
         //deletar();
         //atualizar();
-        //selecionarTudo();
+
+//        selecionarTudo();
 //        List<Comprador> compradorList = selecionarTudo();
 //        for (Comprador comprador:compradorList) {
 //            System.out.println(comprador);
@@ -25,7 +26,9 @@ public class TesteConexao {
 
         //CompradorDB.checkDriverStatus();
 
-        CompradorDB.testTypeScroll();
+        //CompradorDB.testTypeScroll();
+
+        CompradorDB.updateNomesToLowerCase();
 
     }
 
