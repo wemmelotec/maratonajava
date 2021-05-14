@@ -17,31 +17,43 @@ public class TesteConexao {
 //        for (Comprador comprador:compradorList) {
 //            System.out.println(comprador);
 //        }
-        List<Comprador> compradorList = selecionarPorNome("avo");
-        System.out.println(compradorList);
+
+//        List<Comprador> compradorList = selecionarPorNome("avo");
+//        System.out.println(compradorList);
+
+        //CompradorDB.selectMetaData();
+
+        //CompradorDB.checkDriverStatus();
+
+        CompradorDB.testTypeScroll();
+
     }
 
-    public static void inserir(){
+    public static void inserir() {
         Comprador comprador = new Comprador("123.123.456-78", "Gustavo");
         CompradorDB compradorDB = new CompradorDB();
         compradorDB.save(comprador);
     }
-    public static void deletar(){
+
+    public static void deletar() {
         Comprador comprador = new Comprador();
         comprador.setId(4);
         CompradorDB.delete(comprador);
     }
-    public static void atualizar(){
-        Comprador comprador = new Comprador(5,"000.000.000-00", "Gustavo");
+
+    public static void atualizar() {
+        Comprador comprador = new Comprador(5, "000.000.000-00", "Gustavo");
         CompradorDB.update(comprador);
     }
-//    public static void selecionarTudo(){
+
+    //    public static void selecionarTudo(){
 //        CompradorDB.selectAll();
 //    }
-    public static List<Comprador> selecionarTudo(){
+    public static List<Comprador> selecionarTudo() {
         return CompradorDB.selectAll();
     }
-    public static List<Comprador> selecionarPorNome(String nome){
+
+    public static List<Comprador> selecionarPorNome(String nome) {
         return CompradorDB.searchByName(nome);
     }
 }
