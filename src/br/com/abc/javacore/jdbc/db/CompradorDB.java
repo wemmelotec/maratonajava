@@ -228,4 +228,70 @@ public class CompradorDB {
             e.printStackTrace();
         }
     }
+    /*
+    PreparedStatement é muito útil quando você precisa de alta performace na execução de seus sql.
+    É uma subclasse de Statment, vou pegar o método searchByName e  utilizar o PreparedStatement.
+    O PreparedStatement é uma forma de não permitir o sqlinjection, pois ele não permite apostrofos como parametro
+     */
+    public static List<Comprador> searchByNamePreparedStatement(String nome) {
+        String sql = "SELECT id,cpf,nome FROM agencia.comprador WHERE nome LIKE ?";
+        Connection connection = ConexaoFactory.getConexao();
+        List<Comprador> compradorList = new ArrayList<>();
+        try {
+            PreparedStatement prepareStatement = connection.prepareStatement(sql);
+            prepareStatement.setString(1,"%"+nome+"%");//dado do tipo do nosso coringa ?, posição do ? e de onde é o valor
+            ResultSet resultSet = prepareStatement.executeQuery();//observe que não tem o sql
+            while (resultSet.next()) {
+                //essa linha vai criar o objeto com o resultSet e depois adiciona a lista
+                compradorList.add(new Comprador(resultSet.getInt("id"), resultSet.getString("cpf"), resultSet.getString("nome")));
+            }
+            ConexaoFactory.close(connection, prepareStatement, resultSet);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //update como PreparedStatment
+    public static void updatePreparedStatement(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não foi possível atualizar o registro!");
+            return;//se o comprador for nulo, esse return saí do método delete, não executa as linhas abaixo
+        }
+        String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE `id` = ?";
+        Connection connection = ConexaoFactory.getConexao();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, comprador.getCpf());
+            preparedStatement.setString(2, comprador.getNome());
+            preparedStatement.setInt(3,comprador.getId());
+            preparedStatement.executeUpdate();
+            ConexaoFactory.close(connection, preparedStatement);
+            System.out.println("Registro atualizado com sucesso!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    /*
+    CallebleStatment é utilizado para fazer consultas utilizando as procedures ou funções criadas no banco
+     */
+    public static List<Comprador> searchByNameCallableStatement(String nome) {
+        String sql = "CALL `agencia`.`startprocedure_GetCompradoresPorNome`(?)";
+        Connection connection = ConexaoFactory.getConexao();
+        List<Comprador> compradorList = new ArrayList<>();
+        try {
+            CallableStatement callableStatement = connection.prepareCall(sql);
+            callableStatement.setString(1,"%"+nome+"%");//dado do tipo do nosso coringa ?, posição do ? e de onde é o valor
+            ResultSet resultSet = callableStatement.executeQuery();//observe que não tem o sql
+            while (resultSet.next()) {
+                //essa linha vai criar o objeto com o resultSet e depois adiciona a lista
+                compradorList.add(new Comprador(resultSet.getInt("id"), resultSet.getString("cpf"), resultSet.getString("nome")));
+            }
+            ConexaoFactory.close(connection, callableStatement, resultSet);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

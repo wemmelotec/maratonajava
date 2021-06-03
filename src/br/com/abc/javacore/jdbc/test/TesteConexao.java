@@ -28,7 +28,10 @@ public class TesteConexao {
 
         //CompradorDB.testTypeScroll();
 
-        CompradorDB.updateNomesToLowerCase();
+        //CompradorDB.updateNomesToLowerCase();
+        //System.out.println(CompradorDB.searchByNamePreparedStatement("we"));
+        //CompradorDB.updatePreparedStatement(new Comprador(5,"000.000.000-22","gustavo medeiros"));
+        System.out.println(CompradorDB.searchByNameCallableStatement("%we%"));
 
     }
 
