@@ -1,5 +1,8 @@
 package br.com.abc.javacore.jdbc.connection;
 
+import javax.sql.RowSet;
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
 
 /*
@@ -16,6 +19,12 @@ ResultSet - trabalha com os resultados daquela consulta
     pode fazer também update mais complexos
 Classe DriveManager = a conexão vem através desta classe que vai buscar o conector daquele banco de dados
 O DriverManeger é uma fábrica de objetos que vai te devolver uma conexão baseado na url que você especificar
+RowSet é um ResultSet a diferença são os tipos, um que mantém a conexão direto com o BD e o desconectado
+    que salva os registros em memória fica trabalhando com eles e atualiza o banco depois, vantagens é mais simples
+    não precisa criar Statments não precisa ficar criando a conexão, ele faz tudo isso.
+    Com o RowSet não podemos utilizar comandos update, insert ou delete
+Java Bean é uma classe Java normal com getters e setters.
+
  */
 public class ConexaoFactory {
     //método responsável por pegar a conexão
@@ -33,6 +42,34 @@ public class ConexaoFactory {
             throwables.printStackTrace();
         }
         return null;
+    }
+    //Método Connection para o RowSet
+    public static JdbcRowSet getRowSetConexao() {
+        //Vamos obter nossa conexão, precisamos de três coisas: url, users and password
+        String url = "jdbc:mysql://localhost:3306/agencia?useSSL=false";
+        String user = "root";
+        String password = "";
+        //agora vou pegar um objeto do tipo RowSet
+        try {
+            JdbcRowSet jdbcRowSet = RowSetProvider.newFactory().createJdbcRowSet();
+            jdbcRowSet.setUrl(url);
+            jdbcRowSet.setUsername(user);
+            jdbcRowSet.setPassword(password);
+
+            return jdbcRowSet;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+    //método sobre carregado para fechar a conexão do RowSet
+    public static void close(JdbcRowSet jdbcRowSet) {
+        try {
+            if (jdbcRowSet != null)//tratamento para o caso de ser nulo
+                jdbcRowSet.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     //método criado para fechar a conexão

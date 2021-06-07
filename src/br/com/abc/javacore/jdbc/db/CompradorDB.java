@@ -1,8 +1,10 @@
 package br.com.abc.javacore.jdbc.db;
 
 import br.com.abc.javacore.jdbc.classes.Comprador;
+import br.com.abc.javacore.jdbc.classes.MyRowSetListener;
 import br.com.abc.javacore.jdbc.connection.ConexaoFactory;
 
+import javax.sql.rowset.JdbcRowSet;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -251,6 +253,51 @@ public class CompradorDB {
             e.printStackTrace();
         }
         return null;
+    }
+    //vai utilizar a conexão do RowSet
+    public static List<Comprador> searchByNameRowSet(String nome) {
+        String sql = "SELECT id,cpf,nome FROM agencia.comprador WHERE nome LIKE ?";
+        JdbcRowSet jdbcRowSet = ConexaoFactory.getRowSetConexao();
+        jdbcRowSet.addRowSetListener(new MyRowSetListener());
+        List<Comprador> compradorList = new ArrayList<>();
+        try {
+            jdbcRowSet.setCommand(sql);
+            jdbcRowSet.setString(1,"%"+nome+"%");//dado do tipo do nosso coringa ?, posição do ? e de onde é o valor
+            jdbcRowSet.execute();
+            while (jdbcRowSet.next()) {
+                //essa linha vai criar o objeto com o resultSet e depois adiciona a lista
+                compradorList.add(new Comprador(jdbcRowSet.getInt("id"), jdbcRowSet.getString("cpf"), jdbcRowSet.getString("nome")));
+            }
+            ConexaoFactory.close(jdbcRowSet);
+            return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //update com o RowSet
+    public static void updateRowSet(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não foi possível atualizar o registro!");
+            return;//se o comprador for nulo, esse return saí do método delete, não executa as linhas abaixo
+        }
+        String sql = "SELECT * FROM comprador WHERE `id` = ?";
+        JdbcRowSet jdbcRowSet = ConexaoFactory.getRowSetConexao();
+        jdbcRowSet.addRowSetListener(new MyRowSetListener());
+        try {
+            jdbcRowSet.setCommand(sql);
+//            jdbcRowSet.setString(1, comprador.getCpf());
+//            jdbcRowSet.setString(2, comprador.getNome());
+            jdbcRowSet.setInt(1,comprador.getId());
+            jdbcRowSet.execute();
+            jdbcRowSet.next();//andar para a primeira posição
+            jdbcRowSet.updateString("nome","William");
+            jdbcRowSet.updateRow();//atualizar a linha
+            ConexaoFactory.close(jdbcRowSet);
+            System.out.println("Registro atualizado com sucesso!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     //update como PreparedStatment
     public static void updatePreparedStatement(Comprador comprador) {
