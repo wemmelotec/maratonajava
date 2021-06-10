@@ -4,6 +4,7 @@ import br.com.abc.javacore.jdbc.classes.Comprador;
 import br.com.abc.javacore.jdbc.classes.MyRowSetListener;
 import br.com.abc.javacore.jdbc.connection.ConexaoFactory;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import java.sql.*;
 import java.util.ArrayList;
@@ -294,6 +295,27 @@ public class CompradorDB {
             jdbcRowSet.updateString("nome","William");
             jdbcRowSet.updateRow();//atualizar a linha
             ConexaoFactory.close(jdbcRowSet);
+            System.out.println("Registro atualizado com sucesso!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    //update com o cachedRowSet que é um tipo de RowSet que trabalha desconectado
+    public static void updateCachedRowSet(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não foi possível atualizar o registro!");
+            return;//se o comprador for nulo, esse return saí do método delete, não executa as linhas abaixo
+        }
+        String sql = "SELECT * FROM comprador WHERE `id` = ?";
+        CachedRowSet cachedRowSet = ConexaoFactory.getRowSetConexaoCached();
+        try {
+            cachedRowSet.setCommand(sql);
+            cachedRowSet.setInt(1,comprador.getId());
+            cachedRowSet.execute();
+            cachedRowSet.next();//andar para a primeira posição
+            cachedRowSet.updateString("nome","WWW");
+            cachedRowSet.updateRow();//atualizar a linha
+            cachedRowSet.acceptChanges();
             System.out.println("Registro atualizado com sucesso!");
         } catch (SQLException e) {
             e.printStackTrace();

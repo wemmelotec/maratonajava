@@ -32,8 +32,9 @@ public class TesteConexao {
         //System.out.println(CompradorDB.searchByNamePreparedStatement("we"));
         //CompradorDB.updatePreparedStatement(new Comprador(5,"000.000.000-22","gustavo medeiros"));
 //        System.out.println(CompradorDB.searchByNameCallableStatement("%we%"));
-        System.out.println(CompradorDB.searchByNameRowSet("we"));
+       // System.out.println(CompradorDB.searchByNameRowSet("we"));
         //CompradorDB.updateRowSet(new Comprador(1,"000.111.000-22","merlim"));
+        CompradorDB.updateCachedRowSet(new Comprador(1,"000.111.000-22","merlim"));
 
     }
 

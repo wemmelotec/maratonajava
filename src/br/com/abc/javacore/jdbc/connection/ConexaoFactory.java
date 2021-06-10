@@ -1,6 +1,7 @@
 package br.com.abc.javacore.jdbc.connection;
 
 import javax.sql.RowSet;
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
@@ -24,6 +25,8 @@ RowSet é um ResultSet a diferença são os tipos, um que mantém a conexão direto c
     não precisa criar Statments não precisa ficar criando a conexão, ele faz tudo isso.
     Com o RowSet não podemos utilizar comandos update, insert ou delete
 Java Bean é uma classe Java normal com getters e setters.
+CachedRowSet é um tipo de RowSet que trabalha desconectado, ou seja, ele faz a query, trabalha no resultado e se houver
+    alteração ele envia no final
 
  */
 public class ConexaoFactory {
@@ -57,6 +60,25 @@ public class ConexaoFactory {
             jdbcRowSet.setPassword(password);
 
             return jdbcRowSet;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+    //Método Connection para o CachedRowSet
+    public static CachedRowSet getRowSetConexaoCached() {
+        //Vamos obter nossa conexão, precisamos de três coisas: url, users and password
+        String url = "jdbc:mysql://localhost:3306/agencia?useSSL=false&relaxAutoCommit=true";
+        String user = "root";
+        String password = "";
+        //agora vou pegar um objeto do tipo RowSet
+        try {
+            CachedRowSet cachedRowSet = RowSetProvider.newFactory().createCachedRowSet();
+            cachedRowSet.setUrl(url);
+            cachedRowSet.setUsername(user);
+            cachedRowSet.setPassword(password);
+
+            return cachedRowSet;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
