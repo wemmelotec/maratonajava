@@ -1,8 +1,7 @@
 package br.com.abc.javacore.jdbc.test;
 
 import br.com.abc.javacore.jdbc.classes.Comprador;
-import br.com.abc.javacore.jdbc.connection.ConexaoFactory;
-import br.com.abc.javacore.jdbc.db.CompradorDB;
+import br.com.abc.javacore.jdbc.db.CompradorDBOLD;
 
 import java.util.List;
 
@@ -34,35 +33,35 @@ public class TesteConexao {
 //        System.out.println(CompradorDB.searchByNameCallableStatement("%we%"));
        // System.out.println(CompradorDB.searchByNameRowSet("we"));
         //CompradorDB.updateRowSet(new Comprador(1,"000.111.000-22","merlim"));
-        CompradorDB.updateCachedRowSet(new Comprador(1,"000.111.000-22","merlim"));
+        CompradorDBOLD.updateCachedRowSet(new Comprador(1,"000.111.000-22","merlim"));
 
     }
 
     public static void inserir() {
         Comprador comprador = new Comprador("123.123.456-78", "Gustavo");
-        CompradorDB compradorDB = new CompradorDB();
-        compradorDB.save(comprador);
+        CompradorDBOLD compradorDBOLD = new CompradorDBOLD();
+        compradorDBOLD.save(comprador);
     }
 
     public static void deletar() {
         Comprador comprador = new Comprador();
         comprador.setId(4);
-        CompradorDB.delete(comprador);
+        CompradorDBOLD.delete(comprador);
     }
 
     public static void atualizar() {
         Comprador comprador = new Comprador(5, "000.000.000-00", "Gustavo");
-        CompradorDB.update(comprador);
+        CompradorDBOLD.update(comprador);
     }
 
     //    public static void selecionarTudo(){
 //        CompradorDB.selectAll();
 //    }
     public static List<Comprador> selecionarTudo() {
-        return CompradorDB.selectAll();
+        return CompradorDBOLD.selectAll();
     }
 
     public static List<Comprador> selecionarPorNome(String nome) {
-        return CompradorDB.searchByName(nome);
+        return CompradorDBOLD.searchByName(nome);
     }
 }

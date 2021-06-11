@@ -68,7 +68,7 @@ public class ConexaoFactory {
     //Método Connection para o CachedRowSet
     public static CachedRowSet getRowSetConexaoCached() {
         //Vamos obter nossa conexão, precisamos de três coisas: url, users and password
-        String url = "jdbc:mysql://localhost:3306/agencia?useSSL=false&relaxAutoCommit=true";
+        String url = "jdbc:mysql://localhost:3306/agencia?useSSL=false&relaxAutoCommit=truegit s";
         String user = "root";
         String password = "";
         //agora vou pegar um objeto do tipo RowSet
