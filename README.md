@@ -6,6 +6,7 @@
 * Java 11
 * IDE - IntelliJ Comunity
 * Git e GitHub
+* MySQL
 
 ## TaksLists
 - [x] CRUD.
