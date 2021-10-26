@@ -9,9 +9,9 @@ public class Cliente {
 	private int[] parcelas;
     //bloco de inicialização
 	{
-		parcelas = new int[100];
-		System.out.println("dentro do bloco de inicialização");
-		for(int i=1; i<=100; i++) {
+		parcelas = new int[10];
+		//System.out.println("dentro do bloco de inicialização");
+		for(int i=1; i<=10; i++) {
 			parcelas[i-1]=i;
 		}
 	}
