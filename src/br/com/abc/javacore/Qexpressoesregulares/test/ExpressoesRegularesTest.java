@@ -18,3 +18,10 @@ public class ExpressoesRegularesTest {
         }
     }
 }
+
+
+/*
+Link para documentação regex com exemplos
+
+https://www.javatpoint.com/java-regex
+ */

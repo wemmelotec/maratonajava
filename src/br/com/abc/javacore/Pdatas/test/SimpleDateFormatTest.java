@@ -9,5 +9,6 @@ public class SimpleDateFormatTest {
         String mascara = "'João Pessoa,' dd 'de' MMMM 'de' yyyy";
         SimpleDateFormat formatador = new SimpleDateFormat(mascara);
         System.out.println(formatador.format(calendar.getTime()));
+
     }
 }
