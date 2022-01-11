@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class ValidarSenhaComRegex {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String regex = "[a-zA-Z0-9]{6}";
+        String regex = "[A-Z]{1}[a-zA-Z0-9]{6,8}";
         Pattern pattern = Pattern.compile(regex);
 
         System.out.println("Digite sua senha com no máximo 6 caraters alfanuméricos");
