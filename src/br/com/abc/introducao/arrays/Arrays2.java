@@ -3,8 +3,7 @@ public class Arrays2 {
 
 	public static void main(String[] args) {
 
-		int[] idades = new int[3]; // float, short, long, float, double se iniciam com os mesmo valores do int que
-									// é o 0
+		int[] idades = new int[3]; // byte, short, long, float, double
 		String[] nomes = new String[3];
 		boolean[] situacao = new boolean[3];
 		char[] caracteres = new char[3];

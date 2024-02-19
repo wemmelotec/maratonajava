@@ -5,8 +5,8 @@ import br.com.abc.javacore.Aintroducaoclasses.classes.Professor;
 public class ProfessorTest {
 
 	public static void main(String[] args) {
+
 		Professor professor1 = new Professor();
-		
 		professor1.nome="wellington";
 		professor1.matricula=2080;
 		professor1.rg=2638027;

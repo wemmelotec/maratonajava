@@ -21,7 +21,7 @@ public class CarroTest {
 		System.out.println(carro.getClass());
 		System.out.println(carro.toString());
 		
-//		System.out.println(carro);
+		System.out.println(carro);
 //
 //		System.out.println(carro.modelo);
 //		System.out.println(carro.placa);
