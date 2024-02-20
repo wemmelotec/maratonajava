@@ -42,10 +42,6 @@ public class Pais {
         return Collections.binarySearch(estados,estado);
     }
 
-
-
-
-
     public List<Estado> getEstados() {
         return estados;
     }

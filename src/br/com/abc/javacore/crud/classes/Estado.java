@@ -10,6 +10,7 @@ public class Estado implements Comparable<Estado>{
         this.name = name;
     }
 
+    //Annotation that indicates that i am overriding the superclass method
     @Override
     public String toString() {
         return "Estado{" +
