@@ -7,6 +7,16 @@ public class BadExceptionHandling {
             int resultado = 10/0;
         }catch (Exception e){
             //Engolindo a Exceção
+            //Primeiro momento sem nenhum tratamento
+
+            //Segundo momento tratando pela minha class MinhaExcecao
+            System.out.println("Erro" + e.getMessage());
         }
+    }
+}
+
+class MinhaExcecao extends Exception {
+    public MinhaExcecao(String mensagem){
+        super(mensagem);
     }
 }
